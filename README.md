@@ -6,11 +6,11 @@ docker build -t rodoxx:sqitch .
 
 docker volume create sqitch-mysql-data
 docker run -p 3366:3306 \
-	-e MYSQL_ALLOW_EMPTY_PASSWORD=yes \
-	-e MYSQL_DATABASE=$PROJECT_NAME \
-	-v $SQITCH_REPO:/var/sqitch \
+  -e MYSQL_ALLOW_EMPTY_PASSWORD=yes \
+  -e MYSQL_DATABASE=$PROJECT_NAME \
+  -v $SQITCH_REPO:/var/sqitch \
   -v sqitch-mysql-data:/var/lib/mysql \
-	-d rodoxx:sqitch
+  -d rodoxx:sqitch
 ```
 
 # How to get start with Sqitch
