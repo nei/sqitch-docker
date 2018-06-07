@@ -17,11 +17,13 @@ docker run -p 3366:3306 \
 
 ## Set your local config
 
+```
 $ sqitch init test --uri https://github.com/rodoxx/sqitch.git --engine mysql
 $ sqitch config --user user.name 'Rodolfo'
 $ sqitch config --user user.email 'rodolfomilanez@gmail.com'
 $ sqitch config --user engine.mysql.client /usr/bin/mysql
 $ sqitch target add localhost db:mysql://root@localhost/databasename
+```
 
 ## Create a migration file
 ```
