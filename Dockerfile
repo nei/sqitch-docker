@@ -1,6 +1,5 @@
-FROM mysql
+FROM mysql:5.6
 
-# File Author / Maintainer
 MAINTAINER Rodolfo Milanez <rodolfomilanez@gmail.com>
 
 # Image & Squitch Deps
@@ -20,14 +19,13 @@ RUN apt-get update && \
 	sqlite3 && \
 	apt-get clean
 
-RUN apt-get install -y libdbd-mysql-perl
-
 # Install sqitch & deps
-RUN PERL_MM_USE_DEFAULT=1 cpan App::Sqitch
-RUN PERL_MM_USE_DEFAULT=1 cpan DBD::SQLite
+RUN apt-get install -y libdbd-mysql-perl && \
+		PERL_MM_USE_DEFAULT=1 cpan App::Sqitch && \
+		PERL_MM_USE_DEFAULT=1 cpan DBD::SQLite
 
 # Set timezone
-RUN TZ="America/Chicago"
+RUN TZ="Europe/London"
 
 #Set LANG for perl
 ENV LANG C
